@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\Member;
 use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Database\Seeder;
@@ -24,6 +25,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'dhikaa',
             'email' => 'dhikabahri4@gmail.com',
             'password' => bcrypt('akudhika123'),
+        ]);
+
+        User::create([
+            'name' => 'aat',
+            'email' => 'aat@gmail.com',
+            'password' => bcrypt('akuaat123'),
         ]);
 
         Category::create([
@@ -70,6 +77,18 @@ class DatabaseSeeder extends Seeder
             'due_date' => date('2022-05-25'),
             'status' => 'On Progress',
             'project_id' => 1
+        ]);
+
+        Member::create([
+            'project_id' => 1,
+            'user_id' => 1,
+            'status' => 'leader'
+        ]);
+
+        Member::create([
+            'project_id' => 1,
+            'user_id' => 2,
+            'status' => ''
         ]);
     }
 }

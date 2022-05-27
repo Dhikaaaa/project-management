@@ -32,6 +32,14 @@ class Project extends Model
      */
     public function task()
     {
-        return $this->belongsTo(Task::class);
+        return $this->hasMany(Task::class);
+    }
+
+    /**
+     * Get the members that owns the project.
+     */
+    public function member()
+    {
+        return $this->hasMany(Member::class);
     }
 }

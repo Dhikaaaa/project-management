@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
+use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -32,6 +35,10 @@ class HomeController extends Controller
             return view($request->path());
         }
         return abort(404);
+        // $project = Project::with('client', 'category', 'task', 'member')->get();
+        // $task = Task::with('project')->get();
+        // $member = Member::with('project', 'user')->get();
+        // dd($member);
     }
 
     public function root()
@@ -89,7 +96,6 @@ class HomeController extends Controller
             //     'Message' => "Something went wrong!"
             // ], 200); // Status code here
             return redirect()->back();
-
         }
     }
 
