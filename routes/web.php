@@ -26,3 +26,14 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+//Language Translation
+Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
+
+//Update User Details
+Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
+Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
+
+Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
